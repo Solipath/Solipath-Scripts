@@ -1,2 +1,2 @@
-if not exist %HOMEDRIVE%%HOMEPATH%\solipath\solipath curl --create-dirs -L "https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe" -o %HOMEDRIVE%%HOMEPATH%/solipath/solipath.exe
+if not exist %HOMEDRIVE%%HOMEPATH%\solipath\solipath.exe curl --create-dirs -L "https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe" -o %HOMEDRIVE%%HOMEPATH%/solipath/solipath.exe
 %HOMEDRIVE%%HOMEPATH%\solipath\solipath.exe %*
