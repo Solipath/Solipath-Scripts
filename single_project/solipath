@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+if [ ! -f "~/solipath/solipath_setup.bash" ]; then
+	curl --url "https://raw.githubusercontent.com/Solipath/Solipath-Scripts/solipath_setup.bash" -o ~/solipath/solipath_setup.bash	
+fi
+./solipath/solipath_setup.bash "$@"
