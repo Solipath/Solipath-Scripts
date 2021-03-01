@@ -9,6 +9,8 @@ get_solipath_for_each_operating_system(){
 			;;
 		CYGWIN*) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe"
 			;;
+		MINGW64*) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe"
+			;;
 		*)	local operating_system="UNKNOWN:${unameOut}"
 	esac
 	echo "$operating_system"
