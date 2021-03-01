@@ -1,0 +1,2 @@
+if not exist %HOMEDRIVE%%HOMEPATH%\solipath\solipath_setup.bat curl --create-dirs --url "https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe" -o %HOMEDRIVE%%HOMEPATH%/solipath/solipath.exe
+%HOMEDRIVE%%HOMEPATH%\solipath\solipath %*
