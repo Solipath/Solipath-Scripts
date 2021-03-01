@@ -14,4 +14,8 @@ get_solipath_for_each_operating_system(){
 	echo "$operating_system"
 }
 
-curl --url "$(get_solipath_for_each_operating_system)" -o ~/solipath/solipath
+if [ ! -f "~/solipath/solipath" ]; then
+	curl -L "$(get_solipath_for_each_operating_system)" -o ~/solipath/solipath
+	chmod 777 ~/solipath/solipath
+fi
+~/solipath/solipath "$@"
