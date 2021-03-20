@@ -18,6 +18,6 @@ get_solipath_for_each_operating_system(){
 
 if [ ! -f ~/solipath/solipath ]; then
 	curl -L "$(get_solipath_for_each_operating_system)" -o ~/solipath/solipath
-	chmod 777 ~/solipath/solipath
+	chmod +x ~/solipath/solipath
 fi
 ~/solipath/solipath "$@"
