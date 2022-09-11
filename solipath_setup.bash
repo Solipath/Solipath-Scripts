@@ -3,7 +3,6 @@
 get_solipath_for_each_operating_system(){
 
 	local uname_m_output=$(uname -m)
-	echo "$uname_m_output"
 	case "$uname_m_output" in
 		aarch64) local architecture="aarch64"
 			;;
@@ -18,7 +17,6 @@ get_solipath_for_each_operating_system(){
 
 
 	local uname_s_output=$(uname -s)
-	echo "$uname_s_output"
 	case "$uname_s_output $architecture" in
 		Linux*x86_64) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-linux_x86_64/solipath"
 			;;
@@ -34,6 +32,8 @@ get_solipath_for_each_operating_system(){
 			;;
 		*)	local operating_system="UNKNOWN:${unameOut}"
 	esac
+
+	echo "$operating_system"
 }
 
 if [ ! -f ~/solipath/solipath ]; then
