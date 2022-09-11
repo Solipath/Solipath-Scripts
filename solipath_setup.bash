@@ -1,19 +1,39 @@
 #!/usr/bin/env bash
 
 get_solipath_for_each_operating_system(){
+
+	local uname_m_output=$(uname -m)
+	echo "$uname_m_output"
+	case "$uname_m_output" in
+		aarch64) local architecture="aarch64"
+			;;
+		arm64) local architecture="aarch64"
+			;;
+		x86_64) local architecture="x86_64"
+			;;
+		amd64) local architecture="x86_64"
+			;;
+		*) local architecture="UNKNOWN"
+	esac
+
+
 	local uname_s_output=$(uname -s)
-	case "$uname_s_output" in
-		Linux*) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-ubuntu_x86_64/solipath"
+	echo "$uname_s_output"
+	case "$uname_s_output $architecture" in
+		Linux*x86_64) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-linux_x86_64/solipath"
 			;;
-		Darwin*) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-macos_x86_64/solipath"
+		Linux*aarch64) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-linux_aarch64/solipath"
 			;;
-		CYGWIN*) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe"
+		Darwin*x86_64) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-macos_x86_64/solipath"
 			;;
-		MINGW64*) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe"
+		Darwin*aarch64) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-macos_aarch64/solipath"
+			;;
+		CYGWIN*x86_64) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe"
+			;;
+		MINGW64*x86_64) local operating_system="https://github.com/Solipath/Solipath/releases/download/latest-windows_x86_64/solipath.exe"
 			;;
 		*)	local operating_system="UNKNOWN:${unameOut}"
 	esac
-	echo "$operating_system"
 }
 
 if [ ! -f ~/solipath/solipath ]; then
